@@ -81,7 +81,7 @@
         [(ngModel)]="model.payment_mode"
       />
     </div>
-    
+
     <br />
 
     <br />
@@ -102,7 +102,7 @@
   </thead>
   <!-- tbody -->
   <tbody>
-    <tr *ngFor="let ticketbooking of ticketbookings">
+    <tr *ngFor="let ticketbooking of ticketbooking">
       <td>{{ ticketbooking.id }}</td>
       <td>{{ ticketbooking.name }}</td>
       <td>{{ ticketbooking.film_name }}</td>
@@ -114,7 +114,7 @@
         <button (click)="editTicketbooking(ticketbooking.id)">edit</button>
       </td>
       <td>
-        <button (click)="deleteticketbooking(ticketbooking.id)">delete</button>
+        <button (click)="deleteTicketbooking(ticketbooking.id)">delete</button>
       </td>
     </tr>
   </tbody>

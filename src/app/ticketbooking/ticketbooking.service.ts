@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Ticketbooking } from './ticketbooking';
 
 @Injectable({
   providedIn: 'root',
@@ -9,13 +10,13 @@ export class TicketbookingService {
   public getAllTicketbookingService() {
     return this.httpClient.get('http://localhost:8080/ticketbooking/');
   }
-  public getTicketbookingService(id) {
+  public getTicketbookingService(id: string) {
     return this.httpClient.get('http://localhost:8080/ticketbooking/' + id);
   }
-  public deleteTicketbookingService(id) {
+  public deleteTicketbookingService(id: string) {
     return this.httpClient.delete('http://localhost:8080/ticketbooking/' + id);
   }
-  public createTicketbookingService(ticketbooking) {
+  public createTicketbookingService(ticketbooking: Ticketbooking) {
     alert(JSON.stringify(ticketbooking));
     const headers = { 'content-type': 'application/json' };
     return this.httpClient.post(
@@ -26,7 +27,10 @@ export class TicketbookingService {
       }
     );
   }
-  public updateTicketbookingService(id, ticketbooking) {
+  public updateTicketbookingService(
+    id: string | number,
+    ticketbooking: Ticketbooking
+  ) {
     const headers = { 'content-type': 'application/json' };
     return this.httpClient.put(
       'http://localhost:8080/ticketbooking/' + id,

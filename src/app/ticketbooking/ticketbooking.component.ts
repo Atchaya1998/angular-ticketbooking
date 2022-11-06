@@ -9,7 +9,7 @@ import { TicketbookingService } from './ticketbooking.service';
   styleUrls: ['./ticketbooking.component.css'],
 })
 export class TicketbookingComponent implements OnInit {
-  ticketbookings = [];
+  ticketbooking = [];
   model = new Ticketbooking();
 
   constructor(private ticketbookingService: TicketbookingService) {}
@@ -21,15 +21,17 @@ export class TicketbookingComponent implements OnInit {
     this.ticketbookingService
       .getAllTicketbookingService()
       .subscribe((x: any[]) => {
-        this.ticketbookings = x;
+        this.ticketbooking = x;
       });
   }
-  editTicketbooking(id) {
+  editTicketbooking(id: any) {
+    alert(JSON.stringify(this.model));
     this.ticketbookingService
       .getTicketbookingService(id)
       .subscribe((data: any) => (this.model = data));
   }
-  deleteticketbooking(id: any) {
+  deleteTicketbooking(id: any) {
+    alert(JSON.stringify(this.model));
     this.ticketbookingService
       .deleteTicketbookingService(id)
       .subscribe((data) => {
