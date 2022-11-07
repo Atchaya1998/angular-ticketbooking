@@ -17,21 +17,32 @@ export class TicketbookingComponent implements OnInit {
   ngOnInit() {
     this.getAllTicketbooking();
   }
-  getAllTicketbooking() {
+  public getAllTicketbooking() {
     this.ticketbookingService
       .getAllTicketbookingService()
       .subscribe((x: any[]) => {
         this.ticketbooking = x;
       });
   }
-  editTicketbooking(id: any) {
-    alert(JSON.stringify(this.model));
+  editTicketbooking(id) {
+    alert(this.model.id + ' ' + JSON.stringify(this.model));
     this.ticketbookingService
       .getTicketbookingService(id)
       .subscribe((data: any) => (this.model = data));
-  }
-  deleteTicketbooking(id: any) {
     alert(JSON.stringify(this.model));
+  }
+
+  // deleteTicketbooking(id: any) {
+  //   alert(JSON.stringify(this.model));
+  //   this.ticketbookingService
+  //     .deleteTicketbookingService(id)
+  //     .subscribe((data) => {
+  //       this.getAllTicketbooking();
+  //     });
+  //   alert(JSON.stringify(this.model));
+  // }
+  deleteTicketbooking(id) {
+    alert(this.model.id);
     this.ticketbookingService
       .deleteTicketbookingService(id)
       .subscribe((data) => {
@@ -50,7 +61,7 @@ export class TicketbookingComponent implements OnInit {
           this.model = new Ticketbooking();
         });
     } else {
-      // alert(JSON.stringify(this.model));
+      alert(JSON.stringify(this.model));
       this.ticketbookingService
         .updateTicketbookingService(this.model.id, this.model)
         .subscribe((data) => {

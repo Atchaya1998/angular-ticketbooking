@@ -10,12 +10,15 @@ export class TicketbookingService {
   public getAllTicketbookingService() {
     return this.httpClient.get('http://localhost:8080/ticketbooking/');
   }
-  public getTicketbookingService(id: string) {
+  public getTicketbookingService(id) {
     return this.httpClient.get('http://localhost:8080/ticketbooking/' + id);
   }
-  public deleteTicketbookingService(id: string) {
+  public deleteTicketbookingService(id) {
     return this.httpClient.delete('http://localhost:8080/ticketbooking/' + id);
   }
+  // public deleteTicketbookingService(id: string) {
+  //   return this.httpClient.delete('http://localhost:8080/ticketbooking/' + id);
+  // }
   public createTicketbookingService(ticketbooking: Ticketbooking) {
     alert(JSON.stringify(ticketbooking));
     const headers = { 'content-type': 'application/json' };
@@ -27,10 +30,7 @@ export class TicketbookingService {
       }
     );
   }
-  public updateTicketbookingService(
-    id: string | number,
-    ticketbooking: Ticketbooking
-  ) {
+  public updateTicketbookingService(id, ticketbooking: Ticketbooking) {
     const headers = { 'content-type': 'application/json' };
     return this.httpClient.put(
       'http://localhost:8080/ticketbooking/' + id,
