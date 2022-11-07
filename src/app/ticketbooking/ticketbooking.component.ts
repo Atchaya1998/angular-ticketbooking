@@ -24,7 +24,9 @@ export class TicketbookingComponent implements OnInit {
         this.ticketbooking = x;
       });
   }
+
   editTicketbooking(id) {
+    console.log(this.model.id);
     alert(this.model.id + ' ' + JSON.stringify(this.model));
     this.ticketbookingService
       .getTicketbookingService(id)
